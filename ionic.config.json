@@ -1,0 +1,7 @@
+{
+  "name": "TMA",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
