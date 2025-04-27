@@ -1,26 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <title>Ionic App</title>
+  <meta charset="UTF-8">
+  <title>TMA</title>
 
-  <base href="/" />
+  <!-- Ionic Framework CDN -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
 
-  <meta name="color-scheme" content="light dark" />
-  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="msapplication-tap-highlight" content="no" />
-
-  <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
-
-  <!-- add to homescreen for ios -->
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+  
+    ion-app {
+      height: 100%;
+      width: 100%;
+    }
+  
+    ion-content {
+      --background: #c3c3c3cc;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: stretch;
+      padding: 20px;
+    }
+  
+    ion-item,
+    ion-button {
+      width: 100%;
+      font-size: 1.2rem;
+    }
+  
+    ion-input {
+      font-size: 1.2rem;
+    }
+  
+    ion-label {
+      margin-top: 20px;
+      font-size: 1.2rem;
+    }
+  </style>
 </head>
-
 <body>
-  <app-root></app-root>
-</body>
 
+  <ion-app>
+    <ion-header>
+      <ion-toolbar color="dark">
+        <ion-title>Task Manager</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <form id="registerForm">
+
+        <ion-item lines="full">
+          <ion-label position="stacked">Email Address</ion-label>
+          <ion-input type="email" id="emailInput" required></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" type="submit" color="medium" class="ion-margin-top">
+          Register
+        </ion-button>
+
+      </form>
+    </ion-content>
+  </ion-app>
+
+  <script>
+    const form = document.getElementById('registerForm');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent page reload
+      const email = document.getElementById('emailInput').value;
+      
+      if(email) {
+        alert('Registered Successfully with email: ' + email);
+      } else {
+        alert('Please enter a valid email address.');
+      }
+    });
+  </script>
+
+</body>
 </html>
